@@ -13,7 +13,6 @@
    yum install docker-compose-plugin <br>
    yum install epel-release <br>
    yum install ansible -y <br>
-   # Install Consul [https://developer.hashicorp.com/consul/docs/install#precompiled-binaries](https://developer.hashicorp.com/consul/docs/install#compiling-from-source)
    </ul>
    <hr>
 
@@ -23,9 +22,10 @@
    mkdir /oculus-ansible/roles<br>
    cd /oculus-ansible/roles<br>
    ansible-galaxy init consulrole<br>
-   mkdir /oculus-consul<br>
-   cd /oculus-consul<br>
-   git clone https://developer.hashicorp.com/consul/docs/install#precompiled-binaries
+   mkdir /oculus-ansible/tasks<br>
+   cd /oculus-tasks<br>
+   # REFERENCE https://developer.hashicorp.com/consul/docs/install#precompiled-binaries
+   install-consul.yaml   
    </ul>
    <br>
 <h2>DOCKER</h2>
