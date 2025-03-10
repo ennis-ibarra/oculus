@@ -1,0 +1,4 @@
+name: Install Consul
+ package:
+ name: consul
+ state: present
