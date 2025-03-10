@@ -65,6 +65,14 @@
          <li> Logs </li>
          <li> Admin Processes </li>
       </ol> <br>
-      <i><b>NOTE:</b> Analysis of 12-factor against the YAML to deploy Kong, with fair evaluation and room to enhance the proposal, IMAGE: Kong12 </i>
-   </ul>
+      <i><b>NOTE:</b> Analysis of 12-factor against the YAML to deploy Kong, with fair evaluation and room to enhance the proposal, IMAGE: Kong12_AI-analysis.png </i> <br>
+   </ul><br>
+
+<h2>Gitlab CI/CD</h2>
+
+<h3>Write and Example of Gitlab CI/CD pipeline with stages: </h3>
+   <ul>
+   Build the Docker image for Kong with declarative configuration<br>
+   Push the image to the docker regitry <br>
+   Install the Image <br>
    
