@@ -1,0 +1,5 @@
+---
+- name: Install Consul
+  hosts: localhost
+  roles:
+    - consulrole
