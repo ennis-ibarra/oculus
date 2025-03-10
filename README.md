@@ -64,6 +64,7 @@
          <li> Dev/Prod parity</li>
          <li> Logs </li>
          <li> Admin Processes </li>
-      </ol>
+      </ol> <br>
+      <i><b>NOTE:</b> Analysis of 12-factor against the YAML to deploy Kong, with fair evaluation and room to enhance the proposal, IMAGE: Kong12 </i>
    </ul>
    
