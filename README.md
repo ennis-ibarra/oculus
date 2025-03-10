@@ -24,8 +24,10 @@
    ansible-galaxy init consulrole<br>
    mkdir /oculus-ansible/tasks<br>
    cd /oculus-tasks<br>
-   # REFERENCE https://developer.hashicorp.com/consul/docs/install#precompiled-binaries
-   install-consul.yaml   
+   # REFERENCE https://developer.hashicorp.com/consul/docs/install#precompiled-binaries <be>
+   # install-consul.yaml <br>
+   # playbook.yaml  <br>
+   ansible-playbook playbook.yaml   
    </ul>
    <br>
 <h2>DOCKER</h2>
