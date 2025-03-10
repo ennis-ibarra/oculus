@@ -39,11 +39,13 @@
 <h2>DOCKER</h2>
 
 <h3>Write Docker compose file to run a Docker registry latest and register it in the consul server created </h3>
+   <ul>
    mkdir /oculus-docker <br>
    cd /oculus-docker <br>
    # File docker-compose.yaml <br>
    docker compose up -d <br>
    # File docker.json <br>
    consul agent -dev -enable-script-checks -config-dir=/oculus-consul/services <br>
-   
+   # File 
+   </ul>ul
    
