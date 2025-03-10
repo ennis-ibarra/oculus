@@ -13,6 +13,7 @@
    yum install docker-compose-plugin <br>
    yum install epel-release <br>
    yum install ansible -y <br>
+   yum install screen -y <br>
    </ul>
    <hr>
 
@@ -27,13 +28,18 @@
    # REFERENCE https://developer.hashicorp.com/consul/docs/install#precompiled-binaries <be>
    # install-consul.yaml <br>
    # playbook.yaml  <br>
-   ansible-playbook playbook.yaml   
+   ansible-playbook playbook.yaml <br>
+   consul version <br>
+   consul start -dev <br>
+   screen <br>
+     consul agent -dev (detach) <br>
+   screen -ls <br>
    </ul>
    <br>
 <h2>DOCKER</h2>
 
 <h3>Write Docker compose file to run a Docker registry latest and register it in the consul server created </h3>
-   File docker-compose.yaml
-   mkdir /oculus-docker
-   cd /oculus-docker
-   
+   mkdir /oculus-docker <br>
+   cd /oculus-docker <br>
+   # File docker-compose.yaml
+   docker compose up -d
