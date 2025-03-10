@@ -1,0 +1,9 @@
+{
+  "service": {
+    "name": "kong",
+    "tags": [
+      "kong"
+    ],
+    "port": 8000
+  }
+}
