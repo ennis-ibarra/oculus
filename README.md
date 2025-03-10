@@ -46,6 +46,24 @@
    docker compose up -d <br>
    # File docker.json <br>
    consul agent -dev -enable-script-checks -config-dir=/oculus-consul/services <br>
-   # File 
-   </ul>ul
+   # Create declarative configuration for Kong and register as a service (use Consul) <br>   
+   # File kong.json <br>
+   # Write a Dockerfile to build a Kong container with Declarative Configuration (DB-less mode) <br>
+   # Follow the 12-factor app methodology <br>
+   https://12factor.net/ <br>
+      <ol>
+         <li> Codebase </li>
+         <li> Dependencies </li>
+         <li> Config </li>
+         <li> Backing services </li>
+         <li> Build, release, run </li>
+         <li> Processes </li>
+         <li> Port binding </li>
+         <li> Concurrency </li>
+         <li> Disposability </li>
+         <li> Dev/Prod parity</li>
+         <li> Logs </li>
+         <li> Admin Processes </li>
+      </ol>
+   </ul>
    
