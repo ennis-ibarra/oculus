@@ -1,4 +1,4 @@
-# oculus - TECHNICAL TASK
+# oculus - TECHNICAL TASKS
 
 <h2> ANSIBLE </h2> 
 <hr> 
