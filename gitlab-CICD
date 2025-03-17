@@ -1,0 +1,50 @@
+stages:
+  - build
+  - push
+  - deploy
+
+variables:
+  KONG_CONFIG_FILE: kong.yml
+  IMAGE_NAME: $CI_REGISTRY_IMAGE/kong:$CI_COMMIT_SHORT_SHA
+
+before_script:
+  - echo "Authenticating to container registry..."
+  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build_image:
+  stage: build
+  image: docker:24.0
+  services:
+    - docker:24.0-dind
+  script:
+    - echo "Building Kong image for project $CI_PROJECT_NAME"
+    - echo "Using commit SHA: $CI_COMMIT_SHORT_SHA"
+    - docker build --pull -t $IMAGE_NAME --build-arg KONG_VERSION=3.6.1 .
+    - echo "Build completed successfully. Image size: $(docker inspect $IMAGE_NAME --format='{{.Size}}') bytes"
+  artifacts:
+    paths:
+      - $KONG_CONFIG_FILE
+
+push_image:
+  stage: push
+  image: docker:24.0
+  services:
+    - docker:24.0-dind
+  script:
+    - echo "Pushing image to $CI_REGISTRY_IMAGE"
+    - docker push $IMAGE_NAME
+    - docker tag $IMAGE_NAME $CI_REGISTRY_IMAGE/kong:latest
+    - docker push $CI_REGISTRY_IMAGE/kong:latest
+    - echo "Image successfully pushed with tags: $CI_COMMIT_SHORT_SHA and latest"
+
+deploy_kong:
+  stage: deploy
+  image: alpine:3.18
+  script:
+    - echo "Deploying Kong image to environment"
+    - apk add --no-cache docker
+    - docker run -d --name kong-instance -p 8000:8000 $IMAGE_NAME
+    - echo "Waiting for Kong to start..."
+    - sleep 30
+    - echo "Kong status: $(curl -sI http://localhost:8000 | head -n1)"
+    - echo "Deployment completed for $CI_PROJECT_NAME"
