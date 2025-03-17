@@ -3,7 +3,7 @@
 <h2> ANSIBLE </h2> 
 <hr> 
 
-<h3> CREATE a Centos-Stream-8 VM </h3>
+<h3> TASK:  CREATE a Centos-Stream-8 VM </h3>
 
    <ul>
    https://mirrors.centos.org/mirrorlist?path=/10-stream/BaseOS/x86_64/iso/CentOS-Stream-10-latest-x86_64-dvd1.iso <br>
@@ -17,7 +17,7 @@
    </ul>
    <hr>
 
- <h3> CREATE an Ansible role to Install Consul Server on VM </h3>
+ <h3> TASK: CREATE an Ansible role to Install Consul Server on VM </h3>
    <ul>
    mkdir /oculus-ansbile<br>
    mkdir /oculus-ansible/roles<br>
@@ -38,7 +38,7 @@
    <br>
 <h2>DOCKER</h2>
 
-<h3>Write Docker compose file to run a Docker registry latest and register it in the consul server created </h3>
+<h3>TASK: Write Docker compose file to run a Docker registry latest and register it in the consul server created </h3>
    <ul>
    mkdir /oculus-docker <br>
    cd /oculus-docker <br>
@@ -70,9 +70,17 @@
 
 <h2>Gitlab CI/CD</h2>
 
-<h3>Write and Example of Gitlab CI/CD pipeline with stages: </h3>
+<h3>TASK: Write and Example of Gitlab CI/CD pipeline with stages: </h3>
    <ul>
-   Build the Docker image for Kong with declarative configuration<br>
-   Push the image to the docker regitry <br>
-   Install the Image <br>
+   <li> 1. Build 
+     Uses docker:24.0 image with Docker-in-Docker (dind) service --pull flag ensures base image is actual.  Build arguments and tags use CI_COMMIT_SHORT_SHA for traceability Artifacts preserve the declarative config file (kong.yml)<br>
+  <li> 2. Push 
+     Tags images with both commit SHA and latest Uses CI_REGISTRY_IMAGE for registry path consistency follows BPs to include explicit success/failure messaging<br>
+  <li> 3. Deploy 
+      Verifies service availability with CURL check uses temporary alpine image with Docker installed, includes port mapping for Kong's admin API<br>
+      - Build the Docker image for Kong with declarative configuration<br>
+      - Push the image to the docker regitry <br>
+      - Install the Image <br><br>
+     <I> Included gitalb-CICD yaml file for gitlab, still debugging it, but base is correct </i>
+   </ul>
    
